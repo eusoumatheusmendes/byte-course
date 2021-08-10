@@ -10,19 +10,14 @@ public class Curso {
     private Collection<Disciplina> disciplinas;
     private int totalDeAlunos;
 
-    public Curso(String nome, int duracao){
+    public Curso(String nome){
         this.nome = nome;
-        this.duracao = duracao;
         this.alunos = new HashSet<>();
         this.disciplinas = new HashSet<>();
     }
 
     public String getNome() {
         return nome;
-    }
-
-    public int getDuracao() {
-        return duracao;
     }
 
     @Override
@@ -66,4 +61,12 @@ public class Curso {
     public void ofertar(Disciplina disciplina){
         this.disciplinas.add(disciplina);
     }
+
+   public int getDuracao(){
+     this.disciplinas.forEach(disciplina -> {
+         this.duracao += disciplina.getDuracao();
+     });
+     return this.duracao;
+   }
+
 }

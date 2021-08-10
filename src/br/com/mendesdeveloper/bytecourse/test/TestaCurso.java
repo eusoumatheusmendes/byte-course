@@ -5,16 +5,24 @@ import br.com.mendesdeveloper.bytecourse.model.Curso;
 import br.com.mendesdeveloper.bytecourse.model.Disciplina;
 import br.com.mendesdeveloper.bytecourse.model.Instrutor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TestaCurso {
 
     public static void main(String[] args) {
 
-        Curso si = new Curso("Sistemas de Informaçao", 4);
+        Curso si = new Curso("Sistemas de Informaçao");
 
         Aluno juliana = new Aluno("Juliana", "000000000", 120987);
         Aluno pedro = new Aluno("Pedro", "00050000", 120987);
         Aluno paulo = new Aluno("Paulo", "0004850000", 120987);
         Aluno maria = new Aluno("Maria", "0004850000", 120987);
+
+        List<Aluno> alunos = new ArrayList<>();
+        alunos.add(juliana);
+        alunos.add(pedro);
+        alunos.add(maria);
 
         Instrutor instrutor = new Instrutor("Joao", "0845654444");
         Disciplina programacao = new Disciplina("Programação 3", 2);
@@ -29,6 +37,10 @@ public class TestaCurso {
 
         si.ofertar(programacao);
         si.ofertar(programacao4);
+
+        System.out.println("Existe esse aluno? " +si.getAlunos().contains(maria));
+
+        System.out.println("Duração do curso: " +si.getDuracao());
 
         System.out.println("Alunos mastriculados no curso de SI: ==================");
         si.getAlunos().forEach(aluno -> {
