@@ -8,6 +8,7 @@ public class Curso {
     private int duracao;
     private Collection<Aluno> alunos;
     private Collection<Disciplina> disciplinas;
+    private int totalDeAlunos;
 
     public Curso(String nome, int duracao){
         this.nome = nome;
@@ -55,5 +56,14 @@ public class Curso {
 
     public void matricular(Aluno aluno) {
         this.alunos.add(aluno);
+        this.totalDeAlunos++;
+    }
+
+    public int getTotalDeAlunos() {
+        return totalDeAlunos;
+    }
+
+    public void ofertar(Disciplina disciplina){
+        this.disciplinas.add(disciplina);
     }
 }

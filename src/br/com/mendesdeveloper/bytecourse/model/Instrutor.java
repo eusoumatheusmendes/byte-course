@@ -1,15 +1,14 @@
 package br.com.mendesdeveloper.bytecourse.model;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 public class Instrutor {
 
     private String nome;
     private String curriculo;
     private String cpf;
-    private Set<Disciplina> disciplinasLecionadas;
+    private Collection<Disciplina> disciplinasLecionadas;
+    private int totalDeDisciplinasLecionadas;
 
     public Instrutor(String nome, String cpf){
         if(nome == null || cpf == null){
@@ -26,6 +25,10 @@ public class Instrutor {
 
     public String getCurriculo() {
         return curriculo;
+    }
+
+    public Collection<Disciplina> getDisciplinasLecionadas() {
+        return Collections.unmodifiableCollection(disciplinasLecionadas);
     }
 
     @Override
@@ -46,5 +49,14 @@ public class Instrutor {
     @Override
     public int hashCode() {
         return Objects.hash(nome, curriculo, cpf, disciplinasLecionadas);
+    }
+
+    public void lecionar(Disciplina programacao) {
+        this.disciplinasLecionadas.add(programacao);
+        this.totalDeDisciplinasLecionadas++;
+    }
+
+    public int getTotalDeDisciplinasLecionadas() {
+        return totalDeDisciplinasLecionadas;
     }
 }
