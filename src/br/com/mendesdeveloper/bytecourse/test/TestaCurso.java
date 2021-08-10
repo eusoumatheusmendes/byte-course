@@ -1,9 +1,6 @@
 package br.com.mendesdeveloper.bytecourse.test;
 
-import br.com.mendesdeveloper.bytecourse.model.Aluno;
-import br.com.mendesdeveloper.bytecourse.model.Curso;
-import br.com.mendesdeveloper.bytecourse.model.Disciplina;
-import br.com.mendesdeveloper.bytecourse.model.Instrutor;
+import br.com.mendesdeveloper.bytecourse.model.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,17 +16,19 @@ public class TestaCurso {
         Aluno paulo = new Aluno("Paulo", "0004850000", 120987);
         Aluno maria = new Aluno("Maria", "0004850000", 120987);
 
-        List<Aluno> alunos = new ArrayList<>();
-        alunos.add(juliana);
-        alunos.add(pedro);
-        alunos.add(maria);
-
-        Instrutor instrutor = new Instrutor("Joao", "0845654444");
+        Instrutor instrutor1 = new Instrutor("Joao", "0845654444");
         Disciplina programacao = new Disciplina("Programação 3", 2);
         Disciplina programacao4 = new Disciplina("Programação 4", 2);
 
-        instrutor.lecionar(programacao);
-        instrutor.lecionar(programacao4);
+        instrutor1.lecionar(programacao);
+        instrutor1.lecionar(programacao4);
+
+        Instrutor instrutor2 = new Instrutor("Marilu", "47656555");
+        Disciplina engenhariaSoftware = new Disciplina("Engenharia Software 3", 3);
+        Disciplina bd = new Disciplina("BD", 3);
+
+        instrutor2.lecionar(engenhariaSoftware);
+        //instrutor2.lecionar(bd);
 
         si.matricular(juliana);
         si.matricular(pedro);
@@ -38,7 +37,11 @@ public class TestaCurso {
         si.ofertar(programacao);
         si.ofertar(programacao4);
 
-        System.out.println("Existe esse aluno? " +si.getAlunos().contains(maria));
+        CalculadoraDePagamentosDoInstrutor calc = new CalculadoraDePagamentosDoInstrutor();
+        calc.calcularPagamento(instrutor2);
+
+        System.out.println("Total pagamento: " +calc.getGetTotalPagamento());
+
 
         System.out.println("Duração do curso: " +si.getDuracao());
 

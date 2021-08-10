@@ -1,8 +1,10 @@
 package br.com.mendesdeveloper.bytecourse.model;
 
+import br.com.mendesdeveloper.bytecourse.services.Remuneravel;
+
 import java.util.*;
 
-public class Instrutor {
+public class Instrutor implements Remuneravel {
 
     private String nome;
     private String curriculo;
@@ -51,12 +53,17 @@ public class Instrutor {
         return Objects.hash(nome, curriculo, cpf, disciplinasLecionadas);
     }
 
-    public void lecionar(Disciplina programacao) {
-        this.disciplinasLecionadas.add(programacao);
+    public void lecionar(Disciplina disciplina) {
+        this.disciplinasLecionadas.add(disciplina);
         this.totalDeDisciplinasLecionadas++;
     }
 
     public int getTotalDeDisciplinasLecionadas() {
         return totalDeDisciplinasLecionadas;
+    }
+
+    @Override
+    public double getSalario() {
+        return this.totalDeDisciplinasLecionadas * 2000;
     }
 }

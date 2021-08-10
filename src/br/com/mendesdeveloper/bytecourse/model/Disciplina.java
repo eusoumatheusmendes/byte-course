@@ -6,6 +6,9 @@ public class Disciplina {
     private int duracao;
 
     public Disciplina(String descricao, int duracao){
+        if(descricao == null || duracao <= 0){
+            throw new IllegalArgumentException("Entre com uma descrição e duração válida para a disciplina.");
+        }
         this.descricao = descricao;
         this.duracao = duracao;
     }

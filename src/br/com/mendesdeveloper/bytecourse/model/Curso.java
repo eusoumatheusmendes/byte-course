@@ -11,6 +11,9 @@ public class Curso {
     private int totalDeAlunos;
 
     public Curso(String nome){
+        if(nome == null){
+            throw new NullPointerException("Curso deve possuir um nome.");
+        }
         this.nome = nome;
         this.alunos = new HashSet<>();
         this.disciplinas = new HashSet<>();
