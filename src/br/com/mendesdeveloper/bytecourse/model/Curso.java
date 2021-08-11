@@ -41,7 +41,7 @@ public class Curso {
 
     @Override
     public int hashCode() {
-        return Objects.hash(nome, duracao, alunos, disciplinas);
+        return Objects.hash(nome, duracao, alunos, disciplinas, totalDeAlunos);
     }
 
     public Collection<Aluno> getAlunos() {
@@ -72,4 +72,7 @@ public class Curso {
      return this.duracao;
    }
 
+   public boolean existeAluno(Aluno aluno){
+        return this.alunos.contains(aluno);
+   }
 }

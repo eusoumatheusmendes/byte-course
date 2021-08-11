@@ -33,6 +33,7 @@ public class TestaCurso {
         si.matricular(juliana);
         si.matricular(pedro);
         si.matricular(paulo);
+        System.out.println("EXISTE ESSE ALUNO?" +si.existeAluno(maria));
 
         si.ofertar(programacao);
         si.ofertar(programacao4);

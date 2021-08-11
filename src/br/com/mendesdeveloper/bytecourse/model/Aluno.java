@@ -1,7 +1,5 @@
 package br.com.mendesdeveloper.bytecourse.model;
 
-import java.util.Objects;
-
 public class Aluno {
 
     private String nome;
@@ -33,11 +31,11 @@ public class Aluno {
     @Override
     public boolean equals(Object o) {
         Aluno aluno = (Aluno) o;
-        return this.cpf == aluno.cpf || this.matricula == aluno.matricula;
+        return this.cpf == aluno.cpf;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nome, cpf, matricula);
+        return this.cpf.hashCode();
     }
 }
